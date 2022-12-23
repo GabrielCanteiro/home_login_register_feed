@@ -30,6 +30,10 @@ const Login = () => {
       navigate('/register')
     }
 
+    const handleClickLogin = () => {
+        navigate('/feed')
+      }
+
     const onSubmit = async (formData) => {
         try{
             const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.password}`);
@@ -60,7 +64,7 @@ const Login = () => {
                    
                     <Input type="password" errorMessage={errors?.password?.message} placeholder="Senha" leftIcon={<MdLock />}  name="password" control={control} />
                    
-                    <Button title="Entrar" variant="secondary" type="submit"/>
+                    <Button title="Entrar" variant="secondary" type="submit" onClick={handleClickLogin}/>
                 </form>
                 <Row>
                     <EsqueciText>Esqueci minha senha</EsqueciText>
